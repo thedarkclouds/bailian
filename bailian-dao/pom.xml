@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bailian-dao</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>bailian-dao Maven Webapp</name>
     <!-- FIXME change it to the project's website -->

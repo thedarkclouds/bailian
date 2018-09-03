@@ -17,6 +17,15 @@
     <url>http://www.example.com</url>
 
     <dependencies>
+         <!--依赖传递，只需要接口，不需要pojo了，已经传递引入了-->
+        <dependency>
+            <groupId>com.bailian</groupId>
+            <artifactId>bailian-sellergoods-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -109,7 +118,7 @@
                 <version>2.2</version>
                 <configuration>
                     <!-- 指定端口 -->
-                    <port>5101</port>
+                    <port>9001</port>
                     <!-- 请求路径 -->
                     <path>/</path>
                 </configuration>

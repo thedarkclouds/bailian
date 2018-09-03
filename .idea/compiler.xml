@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bailian-common" />
+        <module name="bailian-dao" />
         <module name="bailian-manager-web" />
         <module name="bailian-pojo" />
         <module name="bailian-sellergoods-interface" />

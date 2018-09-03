@@ -17,6 +17,23 @@
     <url>http://www.example.com</url>
     <dependencies>
 
+        <!--接口层-->
+        <dependency>
+            <groupId>com.bailian</groupId>
+            <artifactId>bailian-sellergoods-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+      <!--数据访问层-->
+        <dependency>
+            <groupId>com.bailian</groupId>
+            <artifactId>bailian-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -85,16 +102,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.bailian</groupId>
-            <artifactId>bailian-sellergoods-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.bailian</groupId>
-            <artifactId>bailian-dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -117,7 +124,7 @@
                 <version>2.2</version>
                 <configuration>
                     <!-- 指定端口 -->
-                    <port>5001</port>
+                    <port>7001</port>
                     <!-- 请求路径 -->
                     <path>/</path>
                 </configuration>

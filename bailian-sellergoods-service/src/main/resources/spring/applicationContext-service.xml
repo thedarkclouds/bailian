@@ -7,12 +7,14 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <!--访问需占用端口，每个服务不重端口-->
-	<dubbo:protocol name="dubbo" port="20881 " ></dubbo:protocol>
+
+  <!--  <context:component-scan base-package="com.bailian.*"/>-->
+	<!--访问需占用端口，每个服务不重端口-->
+	<dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
 
 	<dubbo:application name="pinyougou-sellergoods-service"/>
-	<dubbo:registry address="zookeeper://192.168.31.186:2181"/>
-	<dubbo:annotation package="com.pinyougou.sellergoods.service.impl"  />
+	<dubbo:registry address="zookeeper://192.168.154.128:2181"/>
+	<dubbo:annotation package="com.bailian.sellergoods.service.impl"/>
 
    
 </beans>
