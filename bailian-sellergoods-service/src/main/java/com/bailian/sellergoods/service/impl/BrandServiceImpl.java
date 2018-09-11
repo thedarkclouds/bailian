@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 //远程调用
 @Service
 @Component
@@ -90,4 +92,10 @@ public class BrandServiceImpl implements BrandService {
         return new PageResult(page.getTotal(), page.getResult());
     }
 
+    /**
+     * 列表数据
+     */
+    public List<Map> selectOptionList() {
+        return brandMapper.selectOptionList();
+    }
 }

@@ -1,5 +1,5 @@
  //控制层 
-app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemplateService){	
+app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemplateService,brandService,specificationService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -76,5 +76,42 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 			}			
 		);
 	}
-    
+
+	//select2插件必须按照此格式参数传参
+	$scope.brandList={data:[{id:1,text:'联想'},{id:2,text:'华为'},{id:1,text:'小米'}]};
+
+
+    //读取品牌列表
+    $scope.findBrandList=function(){
+        brandService.selectOptionList().success(
+            function(response){
+                $scope.brandList={data:response};
+            }
+        );
+    };
+
+
+    $scope.specList={data:[]};
+    //读取品牌列表
+    $scope.findSpecList=function(){
+        specificationService.selectOptionList().success(
+            function(response){
+                $scope.specList={data:response};
+            }
+        );
+    };
+
+    //新增扩展属性行
+    $scope.addTableRow=function(){
+        $scope.entity.customAttributeItems.push({});
+    };
+
+
+
+    //删除扩展属性行
+    $scope.deleTableRow=function(index){
+        $scope.entity.customAttributeItems.splice(index,1);//删除
+    }
+
+
 });	

@@ -33,10 +33,11 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 	
 	//保存 
 	$scope.save=function(){				
-		var serviceObject;//服务层对象  				
-		if($scope.entity.id!=null){//如果有ID
+		var serviceObject;//服务层对象
+		if($scope.entity.specification.id!=null){//如果有ID
 			serviceObject=specificationService.update( $scope.entity ); //修改  
 		}else{
+			alert($scope.entity.specification);
 			serviceObject=specificationService.add( $scope.entity  );//增加 
 		}				
 		serviceObject.success(
@@ -44,6 +45,7 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 				if(response.success){
 					//重新查询 
 		        	$scope.reloadList();//重新加载
+                    alert(response.message);
 				}else{
 					alert(response.message);
 				}
@@ -75,6 +77,17 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 				$scope.paginationConf.totalItems=response.total;//更新总记录数
 			}			
 		);
-	}
+	};
+
+	//新增选项行
+    $scope.addTableRow=function(){
+        $scope.entity.specificationOptionList.push({});
+    };
+
+    //批量选项删除
+    $scope.deleTableRow=function(index){
+    	//删除一个
+        $scope.entity.specificationOptionList.splice(index,1);//删除
+    }
     
 });	

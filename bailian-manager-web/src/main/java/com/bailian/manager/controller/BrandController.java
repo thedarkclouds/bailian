@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 //组合注解，代表 responseBody和Controller
@@ -23,7 +24,8 @@ public class BrandController {
 
      @RequestMapping("/findAll")
     public List<TbBrand> findAll(){
-        return brandService.findAll();
+
+         return brandService.findAll();
     }
 
 
@@ -100,5 +102,11 @@ public class BrandController {
     public PageResult search(@RequestBody TbBrand brand, int page, int rows ){
         return brandService.findPage(brand, page, rows);
     }
+
+    @RequestMapping("/selectOptionList")
+    public List<Map> selectOptionList(){
+        return brandService.selectOptionList();
+    }
+
 
 }

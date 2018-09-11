@@ -1,6 +1,8 @@
 package com.bailian.manager.controller;
 import java.util.List;
+import java.util.Map;
 
+import com.bailian.pojogroup.Specification;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +23,27 @@ public class SpecificationController {
 
 	@Reference
 	private SpecificationService specificationService;
-	
+
+
+
+	/**
+	 * 增加
+	 * @param specification
+	 * @return
+	 */
+	@RequestMapping("/add")
+	public Result add(@RequestBody Specification specification){
+		try {
+			specificationService.add(specification);
+			return new Result(true, "增加成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "增加失败");
+		}
+	}
+
+
+
 	/**
 	 * 返回全部列表
 	 * @return
@@ -41,21 +63,7 @@ public class SpecificationController {
 		return specificationService.findPage(page, rows);
 	}
 	
-	/**
-	 * 增加
-	 * @param specification
-	 * @return
-	 */
-	@RequestMapping("/add")
-	public Result add(@RequestBody TbSpecification specification){
-		try {
-			specificationService.add(specification);
-			return new Result(true, "增加成功");
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new Result(false, "增加失败");
-		}
-	}
+
 	
 	/**
 	 * 修改
@@ -63,7 +71,7 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody TbSpecification specification){
+	public Result update(@RequestBody Specification specification){
 		try {
 			specificationService.update(specification);
 			return new Result(true, "修改成功");
@@ -79,7 +87,7 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbSpecification findOne(Long id){
+	public Specification findOne(Long id){
 		return specificationService.findOne(id);		
 	}
 	
@@ -101,7 +109,7 @@ public class SpecificationController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param
 	 * @param page
 	 * @param rows
 	 * @return
@@ -109,6 +117,12 @@ public class SpecificationController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbSpecification specification, int page, int rows  ){
 		return specificationService.findPage(specification, page, rows);		
+	}
+
+
+	@RequestMapping("/selectOptionList")
+	public List<Map> selectOptionList(){
+		return specificationService.selectOptionList();
 	}
 	
 }
