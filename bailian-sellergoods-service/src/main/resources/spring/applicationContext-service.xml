@@ -12,8 +12,8 @@
 	<!--访问需占用端口，每个服务不重端口-->
 	<dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
 
-	<dubbo:application name="pinyougou-sellergoods-service"/>
-	<dubbo:registry address="zookeeper://192.168.154.131:2181"/>
+	<dubbo:application name="bailian-sellergoods-service"/>
+	<dubbo:registry address="zookeeper://192.168.154.131:2287?backup=192.168.154.131:2288,192.168.154.131:2289"/>
 	<dubbo:annotation package="com.bailian.sellergoods.service.impl"/>
 
    
